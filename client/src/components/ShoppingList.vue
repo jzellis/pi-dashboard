@@ -1,15 +1,19 @@
 <template>
-<div class='container'>
+<div class='is-size-7'>
 <h2 class='title is-5'>Shopping List</h2>
-<ul class='shopping-list tile is-ancestor'>
-<li class='tile is-vertical is-parent is-3' v-for="item in items" :id="item.name"><div class='tile has-background-light box is-child'>{{item.name}} <div class='icon is-small is-pulled-right' @click="removeItem(item)"><i class='fas fa-times-circle'></i></div></div></li>
+<ul class='shopping-list tile is-ancestor is-vertical'>
+<li v-for="item in items" class="tile is-parent is-12" :id="item.name"><div class='tile is-child box has-background-light' :class='{HasTextLight:!item.isPurchased}'>{{item.name}} <div class='icon is-small is-pulled-right' @click="removeItem(item)"><i class='fas fa-times-circle'></i></div></div></li>
 </ul>
-<form id='new-shopping-list-item' class='is-4' @submit.prevent='addItem'>
+<form id='new-shopping-list-item' @submit.prevent='addItem'>
+<div class='field'>
 <div class='control'>
-<input type='text' class='input' placeholder="Enter new item here" v-model='newItem'>
+<input type='text' class='input is-small' placeholder="Enter new item here" v-model='newItem'>
 </div>
+</div>
+<div class='field'>
 <div class='control'>
-<button class='button'>Add New Item</button>
+<button class='button is-primary is-fullwidth is-small'><div class='icon'><i class='fas fa-plus'></i></div> &nbsp; Add New Item</button>
+</div>
 </div>
 </form>
 </div>
@@ -50,6 +54,7 @@ export default {
   removeItem(item){
   
   	var self=this;
+  	item.isPurchased = false;
 	axios.post('http://192.168.0.16:8081/items/remove',{name: item.name})
 	.then(function(response){
 	self.getItems();

@@ -1,8 +1,14 @@
 <template>
   <div id="app">
   <section class="section">
+  <div class='container'>
+  <div class='columns'>
+  <div class='column is-one-quarter'>
   <shopping-list>
   </shopping-list>
+  </div>
+  </div>
+  </div>
   </section>
   </div>
 </template>
@@ -15,7 +21,6 @@ export default {
   name: 'app',
   components: {
 		ShoppingList
-//    HelloWorld
   }
 }
 </script>
