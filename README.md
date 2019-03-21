@@ -1,1 +1,3 @@
-This is a home dashboard for my Raspberry Pi home server. More just a way to learn Vue for a full MEVN stack, as well as Redis.
+This is going to be a home dashboard for my Raspberry Pi home server, with basic stuff like a shopping list, a virtual corkboard so my girlfriend and I can leave notes for one another, and some home automation stuff using the Pi's GPIO and relays, etc.
+
+Mainly this is an excuse for me to learn Redis, Vue and Bulma, and a showcase for prospective employers. It also uses Mongoose/MongoDB and Express.
